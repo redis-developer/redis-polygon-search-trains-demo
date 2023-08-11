@@ -15,6 +15,7 @@ resetBtn.disabled = true;
 searchBtn.disabled = true;
 
 let currentMarkers = [];
+let searchResultMarkers = [];
 let currentPolygon = null;
 
 resetBtn.onclick = function () {
@@ -27,10 +28,21 @@ resetBtn.onclick = function () {
     myMap.removeLayer(marker);
   }
 
+  for (const marker of searchResultMarkers) {
+    myMap.removeLayer(marker);
+  }
+
   currentMarkers = [];
+  searchResultMarkers = [];
   searchBtn.disabled = true;
   resetBtn.disabled = true;
 };
+
+searchBtn.onclick = function () {
+  // TODO get the points for the polygon...
+  // TODO search!
+  alert('TODO: Search');
+}
 
 function updatePolygon() {
   if (currentMarkers.length > 2) {
