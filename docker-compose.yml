@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  redis:
+    container_name: redis-polygon-search-demo
+    image: redis/redis-stack-server:edge
+    ports:
+      - "6379:6379"
