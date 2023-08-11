@@ -37,5 +37,22 @@ for (const station of stations) {
   console.log(`Stored ${station.name} as ${stationKeyName}`);
 }
 
+// Create the index, remove any previous index.
+try {
+  await redisClient.ft.dropIndex('idx:stations');
+} catch (e) {
+  if (e.message.indexOf('Unknown Index') == -1) {
+    console.log('Error:');
+    console.log(e);
+  } else {
+    console.log('Dropped old search index.');
+  }
+}
+
+// Waiting for ft.create to support this in Node Redis.
+await redisClient.sendCommand([
+  'FT.CREATE', 'idx:stations', 'ON', 'JSON', 'PREFIX', '1', 'station:', 'SCHEMA', '$.name', 'AS', 'name', 'TEXT', 'SORTABLE', '$.position', 'AS', 'position', 'GEOSHAPE', 'SPHERICAL'
+]);
+
 // Done with Redis now.
 await redisClient.disconnect();
