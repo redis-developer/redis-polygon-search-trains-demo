@@ -53,6 +53,3 @@ try {
 await redisClient.sendCommand([
   'FT.CREATE', 'idx:stations', 'ON', 'JSON', 'PREFIX', '1', 'station:', 'SCHEMA', '$.name', 'AS', 'name', 'TEXT', 'SORTABLE', '$.position', 'AS', 'position', 'GEOSHAPE', 'SPHERICAL'
 ]);
-
-// Done with Redis now.
-await redisClient.disconnect();

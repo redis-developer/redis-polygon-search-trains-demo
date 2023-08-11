@@ -24,6 +24,9 @@ app.get('/', async (req, res) => {
   return res.render('homepage');
 });
 
+// Example query:
+// FT.SEARCH idx:stations "@position:[within $poly]" RETURN 1 name PARAMS 2 poly "POLYGON((-122.387096 37.724491, -122.360487 38.802250, -122.521058 37.800800, -122.505826 37.705039, -122.387096 37.724491))" DIALECT 3
+
 // Start the Express server.
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}.`);
