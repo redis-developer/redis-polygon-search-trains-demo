@@ -1,4 +1,4 @@
 # TODO
 
+* write readme
 * engines in package
-* git repo in package

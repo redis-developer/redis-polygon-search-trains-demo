@@ -22,6 +22,14 @@
     "redis",
     "express"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redis-developer/redis-polygon-search-trains-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/redis-developer/redis-polygon-search-trains-demo/issues"
+  },
+  "homepage": "https://github.com/redis-developer/redis-polygon-search-trains-demo#readme",
   "devDependencies": {
     "nodemon": "^3.0.1"
   }
