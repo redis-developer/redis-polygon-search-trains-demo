@@ -8,8 +8,29 @@ const redIcon = new L.Icon({
   shadowSize: [41, 41]
 });
 
+const searchBtn = document.getElementById('searchBtn');
+const resetBtn = document.getElementById('resetBtn');
+
+resetBtn.disabled = true;
+searchBtn.disabled = true;
+
 let currentMarkers = [];
 let currentPolygon = null;
+
+resetBtn.onclick = function () {
+  if (currentPolygon) {
+    myMap.removeLayer(currentPolygon);
+    currentPolygon = null;
+  }
+
+  for (const marker of currentMarkers) {
+    myMap.removeLayer(marker);
+  }
+
+  currentMarkers = [];
+  searchBtn.disabled = true;
+  resetBtn.disabled = true;
+};
 
 function updatePolygon() {
   if (currentMarkers.length > 2) {
@@ -23,6 +44,7 @@ function updatePolygon() {
     }
     
     currentPolygon = L.polygon(polyCoords, {color: 'red'}).addTo(myMap);
+    searchBtn.disabled = false;
   }
 }
 
@@ -44,4 +66,6 @@ myMap.on('click', (e) => {
   newMarker.on('move', () => updatePolygon());
   currentMarkers.push(newMarker);  
   updatePolygon();
+
+  resetBtn.disabled = false;
 });
