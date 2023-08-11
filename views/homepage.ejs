@@ -14,10 +14,16 @@
 </head>
 
 <body>
-  <header class="container is-fluid  mt-4 header-section">
-    <img src="/images/redis-favicon-48x48.png" alt="Redis Logo" class="logo" height="48" width="48">
-    <h1 class="title is-4 is-right pd-0 mt-2">Redis Polygon Search Example</h1>
-  </header>
+  <section class="hero has-background-info is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <img src="/images/redis-favicon-48x48.png" alt="Redis Logo" class="logo" height="48" width="48">
+        <h1 class="title has-text-white has-text-centered">
+          Redis Polygon Search Example
+        </h1>
+      </div>
+    </div>
+  </section>
   <main class="container mt-4">
     <div class="notification is-danger" id="errorMessage" hidden>
       <button class="delete" id="dismissError"></button>
@@ -69,15 +75,13 @@
   -->
     <div id="mapid"></div>
   </main>
-  <footer class="footer content mb-0">
-    <h3 class="is-size-3 mb-2">Resources</h3>
-    <div class="block">
-      <a href="https  ://https://github.com/redis-developer/introducing-the-geosearch-command/" target="_blank"
-        rel="noopener ">Check Out The Source Code on GitHub</a>
-    </div>
-    <div class="block">
-      <a href="https://redis.io/commands/geosearch" target="_blank" rel="noopener ">Head Over To The Redis GEOSEARCH
-        Command Page</a>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Redis Polygon Search Demo Application</strong> by <a href="https://discord.gg/redis">Redis Developer Relations</a>.  An example 
+        application using <a href="https://redis.io/">Redis</a>, <a href="http://expressjs.com/">Express</a> and <a href="https://bulma.io/">Bulma</a>.
+      </p>
+      <p><a href="https://github.com/redis-developer/redis-polygon-search-trains-demo">Source code is available on GitHub</a>.</p>
     </div>
   </footer>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
