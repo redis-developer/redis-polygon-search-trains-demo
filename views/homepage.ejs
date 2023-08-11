@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
   crossorigin=""/>
+  <script type="text/javascript" src="/js/fontawesome.js"></script>
 </head>
 
 <body>
@@ -28,50 +29,10 @@
       <button class="delete" id="dismissError"></button>
       This is some error text in case you need it...
     </div>
-    <!--
-    <div class="columns">
-      <div class="column is-three-quarters">
-        <div id="form-control">
-          <div class="field is-horizontal test form-border">
-            <form class="field-body ">
-              <div class="field">
-                <div class="select">
-                  <select id="searchType">
-                    <option>Radius</option>
-                    <option>Box</option>
-                  </select>
-                </div>
-              </div>
-              <div class="field">
-                <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="radius (mi)" id="radius">
-                </p>
-              </div>
-              <div class="field">
-                <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="height (mi)" id="height" readonly>
-                </p>
-              </div>
-              <div class="field">
-                <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="width (mi)" id="width" readonly>
-                </p>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <button class="button is-primary" id="searchBtn" role="button">
-                    Search
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-      </div>
+    <div class="container has-text-centered">
+      <button id="searchBtn" class="button is-success">Search</button>
+      <button id="resetBtn" class="button is-danger">Reset</button>
     </div>
-  -->
     <div id="mapid"></div>
   </main>
   <footer class="footer">
