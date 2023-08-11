@@ -8,6 +8,24 @@ const redIcon = new L.Icon({
   shadowSize: [41, 41]
 });
 
+let currentMarkers = [];
+let currentPolygon = null;
+
+function updatePolygon() {
+  if (currentMarkers.length > 2) {
+    const polyCoords = currentMarkers.map((marker) => [ 
+      marker.getLatLng().lat, 
+      marker.getLatLng().lng 
+    ]);
+
+    if (currentPolygon) {
+      myMap.removeLayer(currentPolygon);
+    }
+    
+    currentPolygon = L.polygon(polyCoords, {color: 'red'}).addTo(myMap);
+  }
+}
+
 L.tileLayer(
   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
   {
@@ -17,7 +35,13 @@ L.tileLayer(
 ).addTo(myMap);
 
 myMap.on('click', (e) => {
-  L.marker(e.latlng, { icon: redIcon }).addTo(myMap);
+  const newMarker = L.marker(e.latlng, { 
+    icon: redIcon, 
+    draggable: true 
+  });
 
-  const { lat, lng } = e.latlng;
+  newMarker.addTo(myMap);
+  newMarker.on('move', () => updatePolygon());
+  currentMarkers.push(newMarker);  
+  updatePolygon();
 });
