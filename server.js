@@ -15,6 +15,7 @@ const app = express();
 app.set('views', new URL('./views', import.meta.url).pathname);
 app.set('view engine', 'ejs');
 app.use(express.static('static'));
+app.use(express.json());
 
 // Connect to Redis.
 await redisClient.connect();
