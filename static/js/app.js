@@ -38,10 +38,33 @@ resetBtn.onclick = function () {
   resetBtn.disabled = true;
 };
 
-searchBtn.onclick = function () {
+searchBtn.onclick = async function () {
   // TODO get the points for the polygon...
   // TODO search!
-  alert('TODO: Search');
+  // No need to check if there are enough points, as the 
+  // button isn't clickable until there are.
+  searchBtn.classList.add('is-loading');
+
+  // Get the polygon points...
+
+  try {
+    // Call the search endpoint.
+    const response = await fetch('/search', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({"todo": true})
+    });
+
+    const responseJSON = await response.json();
+    console.log(responseJSON);
+  } catch (e) {
+    alert('TODO error handling');
+  }
+
+  searchBtn.classList.remove('is-loading');
 }
 
 function updatePolygon() {
