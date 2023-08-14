@@ -31,8 +31,8 @@ for (const station of stations) {
     {
       name: station.name,
       position: `POINT(${lng} ${lat})`,
-      lat,
-      lng
+      lat: parseFloat(lat),
+      lng: parseFloat(lng)
     }
   );
 

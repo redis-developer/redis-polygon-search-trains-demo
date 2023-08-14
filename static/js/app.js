@@ -7,6 +7,14 @@ const redIcon = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41]
 });
+const blueIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
 
 const searchBtn = document.getElementById('searchBtn');
 const resetBtn = document.getElementById('resetBtn');
@@ -39,18 +47,19 @@ resetBtn.onclick = function () {
 };
 
 searchBtn.onclick = async function () {
-  // TODO get the points for the polygon...
-  // TODO search!
   // No need to check if there are enough points, as the 
   // button isn't clickable until there are.
   searchBtn.classList.add('is-loading');
+  
+  // Remove previous results.
+  for (const marker of searchResultMarkers) {
+    myMap.removeLayer(marker);
+  }
 
-  // Get the polygon points...
+  searchResultMarkers = [];
 
   try {
     // Call the search endpoint.
-    console.log('sending:');
-    console.log(currentPolygon.toGeoJSON());
     const response = await fetch('/search', {
       method: 'POST',
       headers: {
@@ -61,9 +70,18 @@ searchBtn.onclick = async function () {
     });
 
     const responseJSON = await response.json();
-    console.log(responseJSON);
+
+    responseJSON.data.map((station) => {
+      const stationMarker = L.marker({ lat: station.lat, lng: station.lng }, { 
+        icon: blueIcon
+      });
+    
+      stationMarker.bindPopup(`<b>${station.name}</b>`).openPopup();
+      stationMarker.addTo(myMap);
+      searchResultMarkers.push(stationMarker);
+    });
   } catch (e) {
-    alert('TODO error handling');
+    console.log(e);
   }
 
   searchBtn.classList.remove('is-loading');
