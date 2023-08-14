@@ -26,9 +26,16 @@ app.get('/', async (req, res) => {
 });
 
 // Perform a polygon search and return the results.
+// Expects the body to be a GeoJSON representation:
+// https://en.wikipedia.org/wiki/GeoJSON
 app.post('/search', async (req, res) => {
   // Example query:
   // FT.SEARCH idx:stations "@position:[within $poly]" RETURN 1 name PARAMS 2 poly "POLYGON((-122.387096 37.724491, -122.360487 38.802250, -122.521058 37.800800, -122.505826 37.705039, -122.387096 37.724491))" DIALECT 3
+
+  const polyCoordinates = req.body.geometry.coordinates[0];
+
+  console.log('received:');
+  console.log(polyCoordinates);
 
   // Results need to include station name, lat, lng.
   return res.json({ 'search': 'TODO'});

@@ -49,13 +49,15 @@ searchBtn.onclick = async function () {
 
   try {
     // Call the search endpoint.
+    console.log('sending:');
+    console.log(currentPolygon.toGeoJSON());
     const response = await fetch('/search', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({"todo": true})
+      body: JSON.stringify(currentPolygon.toGeoJSON())
     });
 
     const responseJSON = await response.json();
