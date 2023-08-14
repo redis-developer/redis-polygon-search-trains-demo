@@ -33,12 +33,31 @@ app.post('/search', async (req, res) => {
   // FT.SEARCH idx:stations "@position:[within $poly]" RETURN 1 name PARAMS 2 poly "POLYGON((-122.387096 37.724491, -122.360487 38.802250, -122.521058 37.800800, -122.505826 37.705039, -122.387096 37.724491))" DIALECT 3
 
   const polyCoordinates = req.body.geometry.coordinates[0];
+  let wktPolygon = 'POLYGON((';
 
-  console.log('received:');
-  console.log(polyCoordinates);
+  for (let n = 0; n < polyCoordinates.length; n++) {
+    wktPolygon = `${wktPolygon}${polyCoordinates[n][0]} ${polyCoordinates[n][1]}${n == polyCoordinates.length -1 ? '))' : ','}`;
+  }
 
-  // Results need to include station name, lat, lng.
-  return res.json({ 'search': 'TODO'});
+  const searchCommand = [ 
+    'FT.SEARCH', 'idx:stations', '@position:[within $poly]', 'PARAMS', '2', 'poly', wktPolygon, 'DIALECT', '3', 'LIMIT', '0', '100'
+  ];
+
+  const searchResponse = (await redisClient.sendCommand(searchCommand));
+  const matchingStations = [];
+
+  if (searchResponse[0] > 0) {
+    for (let n = 1; n < searchResponse.length; n += 2) {
+      matchingStations.push({
+        key: searchResponse[n],
+        ...(JSON.parse(searchResponse[n+1][1])[0])
+      })
+    }
+  }
+
+  return res.json({
+    data: matchingStations
+  });
 });
 
 // Start the Express server.
