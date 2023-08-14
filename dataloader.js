@@ -30,7 +30,9 @@ for (const station of stations) {
     '$',
     {
       name: station.name,
-      position: `POINT(${lng} ${lat})`
+      position: `POINT(${lng} ${lat})`,
+      lat,
+      lng
     }
   );
 
@@ -39,6 +41,7 @@ for (const station of stations) {
 
 // Create the index, remove any previous index.
 try {
+  console.log('Checking for previous index and dropping if found.');
   await redisClient.ft.dropIndex('idx:stations');
 } catch (e) {
   if (e.message.indexOf('Unknown Index') == -1) {
@@ -50,6 +53,10 @@ try {
 }
 
 // Waiting for ft.create to support this in Node Redis.
+console.log('Creating index.');
 await redisClient.sendCommand([
   'FT.CREATE', 'idx:stations', 'ON', 'JSON', 'PREFIX', '1', 'station:', 'SCHEMA', '$.name', 'AS', 'name', 'TEXT', 'SORTABLE', '$.position', 'AS', 'position', 'GEOSHAPE', 'SPHERICAL'
 ]);
+
+console.log('Done!');
+await redisClient.quit();
