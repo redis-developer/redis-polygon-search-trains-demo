@@ -6,6 +6,9 @@
       "latitude": 37.803768,
       "longitude": -122.271450,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Oakland",
       "county": "alameda"
     },
@@ -15,6 +18,9 @@
       "latitude": 37.765062,
       "longitude": -122.419694,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -24,6 +30,9 @@
       "latitude": 37.808350,
       "longitude": -122.268602,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Oakland",
       "county": "alameda"
     },
@@ -33,6 +42,9 @@
       "latitude": 37.752470,
       "longitude": -122.418143,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -51,6 +63,9 @@
       "latitude": 37.852803,
       "longitude": -122.270062,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Berkeley",
       "county": "alameda"
     },
@@ -60,6 +75,9 @@
       "latitude": 37.721585,
       "longitude": -122.447506,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -69,6 +87,9 @@
       "latitude": 37.696924,
       "longitude": -122.126514,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "San Leandro",
       "county": "alameda"
     },
@@ -87,6 +108,9 @@
       "latitude": 37.690746,
       "longitude": -122.075602,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Castro Valley",
       "county": "alameda"
     },
@@ -105,6 +129,9 @@
       "latitude": 37.753661,
       "longitude": -122.196869,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Oakland",
       "county": "alameda"
     },
@@ -114,6 +141,9 @@
       "latitude": 37.684638,
       "longitude": -122.466233,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Colma",
       "county": "sanmateo"
     },
@@ -123,6 +153,9 @@
       "latitude": 37.973737,
       "longitude": -122.029095,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Concord",
       "county": "contracosta"
     },
@@ -131,6 +164,10 @@
       "abbr": "DALY",
       "latitude": 37.706121,
       "longitude": -122.469081,
+      "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Daly City",
       "county": "sanmateo"
     },
@@ -140,6 +177,9 @@
       "latitude": 37.870104,
       "longitude": -122.268133,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Berkeley",
       "county": "alameda"
     },
@@ -149,6 +189,9 @@
       "latitude": 37.701687,
       "longitude": -121.899179,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Pleasanton",
       "county": "alameda"
     },
@@ -167,6 +210,9 @@
       "latitude": 37.902632,
       "longitude": -122.298904,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "El Cerrito",
       "county": "contracosta"
     },
@@ -176,6 +222,9 @@
       "latitude": 37.792874,
       "longitude": -122.397020,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -185,6 +234,9 @@
       "latitude": 37.557465,
       "longitude": -121.976608,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Fremont",
       "county": "alameda"
     },
@@ -194,6 +246,9 @@
       "latitude": 37.774836,
       "longitude": -122.224175,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Oakland",
       "county": "alameda"
     },
@@ -203,6 +258,9 @@
       "latitude": 37.733064,
       "longitude": -122.433817,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -212,6 +270,9 @@
       "latitude": 37.669723,
       "longitude": -122.087018,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Hayward",
       "county": "alameda"
     },
@@ -221,6 +282,9 @@
       "latitude": 37.893176,
       "longitude": -122.124630,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Lafayette",
       "county": "contracosta"
     },
@@ -230,6 +294,9 @@
       "latitude": 37.797027,
       "longitude": -122.265180,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Oakland",
       "county": "alameda"
     },
@@ -239,6 +306,9 @@
       "latitude": 37.829065,
       "longitude": -122.267040,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Oakland",
       "county": "alameda"
     },
@@ -248,6 +318,9 @@
       "latitude": 37.600271,
       "longitude": -122.386702,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Millbrae",
       "county": "sanmateo"
     },
@@ -257,6 +330,9 @@
       "latitude": 37.410277,
       "longitude": -121.891081,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Milpitas",
       "county": "Santa Clara"
     },
@@ -266,6 +342,9 @@
       "latitude": 37.789405,
       "longitude": -122.401066,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -275,6 +354,9 @@
       "latitude": 37.873967,
       "longitude": -122.283440,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Berkeley",
       "county": "alameda"
     },
@@ -284,6 +366,9 @@
       "latitude": 38.003193,
       "longitude": -122.024653,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Concord",
       "county": "contracosta"
     },
@@ -293,6 +378,9 @@
       "latitude": 37.713238,
       "longitude": -122.212191,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Oakland",
       "county": "alameda"
     },
@@ -302,6 +390,9 @@
       "latitude": 37.878361,
       "longitude": -122.183791,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Orinda",
       "county": "contracosta"
     },
@@ -311,6 +402,9 @@
       "latitude": 38.018914,
       "longitude": -121.945154,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Pittsburg",
       "county": "contracosta"
     },
@@ -320,6 +414,9 @@
       "latitude": 38.016941,
       "longitude": -121.889457,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Pittsburg",
       "county": "Contra Costa"
     },
@@ -328,6 +425,10 @@
       "abbr": "PHIL",
       "latitude": 37.928468,
       "longitude": -122.056012,
+      "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Walnut Creek",
       "county": "contracosta"
     },
@@ -337,6 +438,9 @@
       "latitude": 37.784471,
       "longitude": -122.407974,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -346,6 +450,9 @@
       "latitude": 37.936853,
       "longitude": -122.353099,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Richmond",
       "county": "contracosta"
     },
@@ -355,6 +462,9 @@
       "latitude": 37.844702,
       "longitude": -122.251371,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Oakland",
       "county": "alameda"
     },
@@ -364,6 +474,9 @@
       "latitude": 37.637761,
       "longitude": -122.416287,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "San Bruno",
       "county": "sanmateo"
     },
@@ -373,6 +486,9 @@
       "latitude": 37.615966,
       "longitude": -122.392409,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "San Francisco Int'l Airport",
       "county": "sanmateo"
     },
@@ -382,6 +498,9 @@
       "latitude": 37.721947,
       "longitude": -122.160844,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "San Leandro",
       "county": "alameda"
     },
@@ -399,6 +518,9 @@
       "latitude": 37.664245,
       "longitude": -122.443960,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "South San Francisco",
       "county": "sanmateo"
     },
@@ -408,6 +530,9 @@
       "latitude": 37.590630,
       "longitude": -122.017388,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Union City",
       "county": "alameda"
     },
@@ -417,6 +542,9 @@
       "latitude": 37.905522,
       "longitude": -122.067527,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Walnut Creek",
       "county": "contracosta"
     },
@@ -426,6 +554,9 @@
       "latitude": 37.502171,
       "longitude": -121.939313,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Fremont",
       "county": "alameda"
     },
@@ -435,6 +566,9 @@
       "latitude": 37.699756,
       "longitude": -121.928240,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Dublin",
       "county": "alameda"
     },
@@ -444,6 +578,9 @@
       "latitude": 37.804872,
       "longitude": -122.295140,
       "description": "",
+      "parking": 0,
+      "lockers": 0,
+      "bikeRacks": 0,
       "city": "Oakland",
       "county": "alameda"
     }
