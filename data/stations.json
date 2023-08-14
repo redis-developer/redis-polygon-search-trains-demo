@@ -5,6 +5,7 @@
       "abbr": "12TH",
       "latitude": 37.803768,
       "longitude": -122.271450,
+      "description": "",
       "city": "Oakland",
       "county": "alameda"
     },
@@ -13,6 +14,7 @@
       "abbr": "16TH",
       "latitude": 37.765062,
       "longitude": -122.419694,
+      "description": "",
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -21,6 +23,7 @@
       "abbr": "19TH",
       "latitude": 37.808350,
       "longitude": -122.268602,
+      "description": "",
       "city": "Oakland",
       "county": "alameda"
     },
@@ -29,6 +32,7 @@
       "abbr": "24TH",
       "latitude": 37.752470,
       "longitude": -122.418143,
+      "description": "",
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -37,6 +41,7 @@
       "abbr": "ANTC",
       "latitude": 37.995388,
       "longitude": -121.780420,
+      "description": "",
       "city": "Antioch",
       "county": "Contra Costa"
     },
@@ -45,6 +50,7 @@
       "abbr": "ASHB",
       "latitude": 37.852803,
       "longitude": -122.270062,
+      "description": "",
       "city": "Berkeley",
       "county": "alameda"
     },
@@ -53,6 +59,7 @@
       "abbr": "BALB",
       "latitude": 37.721585,
       "longitude": -122.447506,
+      "description": "",
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -61,6 +68,7 @@
       "abbr": "BAYF",
       "latitude": 37.696924,
       "longitude": -122.126514,
+      "description": "",
       "city": "San Leandro",
       "county": "alameda"
     },
@@ -69,6 +77,7 @@
       "abbr": "BERY",
       "latitude": 37.368473,
       "longitude": -121.874681,
+      "description": "",
       "city": "San Jose",
       "county": "Santa Clara"
     },
@@ -77,6 +86,7 @@
       "abbr": "CAST",
       "latitude": 37.690746,
       "longitude": -122.075602,
+      "description": "",
       "city": "Castro Valley",
       "county": "alameda"
     },
@@ -85,6 +95,7 @@
       "abbr": "CIVC",
       "latitude": 37.779732,
       "longitude": -122.414123,
+      "description": "",
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -93,6 +104,7 @@
       "abbr": "COLS",
       "latitude": 37.753661,
       "longitude": -122.196869,
+      "description": "",
       "city": "Oakland",
       "county": "alameda"
     },
@@ -101,6 +113,7 @@
       "abbr": "COLM",
       "latitude": 37.684638,
       "longitude": -122.466233,
+      "description": "",
       "city": "Colma",
       "county": "sanmateo"
     },
@@ -109,6 +122,7 @@
       "abbr": "CONC",
       "latitude": 37.973737,
       "longitude": -122.029095,
+      "description": "",
       "city": "Concord",
       "county": "contracosta"
     },
@@ -125,6 +139,7 @@
       "abbr": "DBRK",
       "latitude": 37.870104,
       "longitude": -122.268133,
+      "description": "",
       "city": "Berkeley",
       "county": "alameda"
     },
@@ -133,6 +148,7 @@
       "abbr": "DUBL",
       "latitude": 37.701687,
       "longitude": -121.899179,
+      "description": "",
       "city": "Pleasanton",
       "county": "alameda"
     },
@@ -141,6 +157,7 @@
       "abbr": "DELN",
       "latitude": 37.925086,
       "longitude": -122.316794,
+      "description": "",
       "city": "El Cerrito",
       "county": "contracosta"
     },
@@ -149,6 +166,7 @@
       "abbr": "PLZA",
       "latitude": 37.902632,
       "longitude": -122.298904,
+      "description": "",
       "city": "El Cerrito",
       "county": "contracosta"
     },
@@ -157,6 +175,7 @@
       "abbr": "EMBR",
       "latitude": 37.792874,
       "longitude": -122.397020,
+      "description": "",
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -165,6 +184,7 @@
       "abbr": "FRMT",
       "latitude": 37.557465,
       "longitude": -121.976608,
+      "description": "",
       "city": "Fremont",
       "county": "alameda"
     },
@@ -173,6 +193,7 @@
       "abbr": "FTVL",
       "latitude": 37.774836,
       "longitude": -122.224175,
+      "description": "",
       "city": "Oakland",
       "county": "alameda"
     },
@@ -181,6 +202,7 @@
       "abbr": "GLEN",
       "latitude": 37.733064,
       "longitude": -122.433817,
+      "description": "",
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -189,6 +211,7 @@
       "abbr": "HAYW",
       "latitude": 37.669723,
       "longitude": -122.087018,
+      "description": "",
       "city": "Hayward",
       "county": "alameda"
     },
@@ -197,6 +220,7 @@
       "abbr": "LAFY",
       "latitude": 37.893176,
       "longitude": -122.124630,
+      "description": "",
       "city": "Lafayette",
       "county": "contracosta"
     },
@@ -205,6 +229,7 @@
       "abbr": "LAKE",
       "latitude": 37.797027,
       "longitude": -122.265180,
+      "description": "",
       "city": "Oakland",
       "county": "alameda"
     },
@@ -213,6 +238,7 @@
       "abbr": "MCAR",
       "latitude": 37.829065,
       "longitude": -122.267040,
+      "description": "",
       "city": "Oakland",
       "county": "alameda"
     },
@@ -221,6 +247,7 @@
       "abbr": "MLBR",
       "latitude": 37.600271,
       "longitude": -122.386702,
+      "description": "",
       "city": "Millbrae",
       "county": "sanmateo"
     },
@@ -229,6 +256,7 @@
       "abbr": "MLPT",
       "latitude": 37.410277,
       "longitude": -121.891081,
+      "description": "",
       "city": "Milpitas",
       "county": "Santa Clara"
     },
@@ -237,6 +265,7 @@
       "abbr": "MONT",
       "latitude": 37.789405,
       "longitude": -122.401066,
+      "description": "",
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -245,6 +274,7 @@
       "abbr": "NBRK",
       "latitude": 37.873967,
       "longitude": -122.283440,
+      "description": "",
       "city": "Berkeley",
       "county": "alameda"
     },
@@ -253,6 +283,7 @@
       "abbr": "NCON",
       "latitude": 38.003193,
       "longitude": -122.024653,
+      "description": "",
       "city": "Concord",
       "county": "contracosta"
     },
@@ -261,6 +292,7 @@
       "abbr": "OAKL",
       "latitude": 37.713238,
       "longitude": -122.212191,
+      "description": "",
       "city": "Oakland",
       "county": "alameda"
     },
@@ -269,6 +301,7 @@
       "abbr": "ORIN",
       "latitude": 37.878361,
       "longitude": -122.183791,
+      "description": "",
       "city": "Orinda",
       "county": "contracosta"
     },
@@ -277,6 +310,7 @@
       "abbr": "PITT",
       "latitude": 38.018914,
       "longitude": -121.945154,
+      "description": "",
       "city": "Pittsburg",
       "county": "contracosta"
     },
@@ -285,6 +319,7 @@
       "abbr": "PCTR",
       "latitude": 38.016941,
       "longitude": -121.889457,
+      "description": "",
       "city": "Pittsburg",
       "county": "Contra Costa"
     },
@@ -301,6 +336,7 @@
       "abbr": "POWL",
       "latitude": 37.784471,
       "longitude": -122.407974,
+      "description": "",
       "city": "San Francisco",
       "county": "sanfrancisco"
     },
@@ -309,6 +345,7 @@
       "abbr": "RICH",
       "latitude": 37.936853,
       "longitude": -122.353099,
+      "description": "",
       "city": "Richmond",
       "county": "contracosta"
     },
@@ -317,6 +354,7 @@
       "abbr": "ROCK",
       "latitude": 37.844702,
       "longitude": -122.251371,
+      "description": "",
       "city": "Oakland",
       "county": "alameda"
     },
@@ -325,6 +363,7 @@
       "abbr": "SBRN",
       "latitude": 37.637761,
       "longitude": -122.416287,
+      "description": "",
       "city": "San Bruno",
       "county": "sanmateo"
     },
@@ -333,6 +372,7 @@
       "abbr": "SFIA",
       "latitude": 37.615966,
       "longitude": -122.392409,
+      "description": "",
       "city": "San Francisco Int'l Airport",
       "county": "sanmateo"
     },
@@ -341,6 +381,7 @@
       "abbr": "SANL",
       "latitude": 37.721947,
       "longitude": -122.160844,
+      "description": "",
       "city": "San Leandro",
       "county": "alameda"
     },
@@ -357,6 +398,7 @@
       "abbr": "SSAN",
       "latitude": 37.664245,
       "longitude": -122.443960,
+      "description": "",
       "city": "South San Francisco",
       "county": "sanmateo"
     },
@@ -365,6 +407,7 @@
       "abbr": "UCTY",
       "latitude": 37.590630,
       "longitude": -122.017388,
+      "description": "",
       "city": "Union City",
       "county": "alameda"
     },
@@ -373,6 +416,7 @@
       "abbr": "WCRK",
       "latitude": 37.905522,
       "longitude": -122.067527,
+      "description": "",
       "city": "Walnut Creek",
       "county": "contracosta"
     },
@@ -381,6 +425,7 @@
       "abbr": "WARM",
       "latitude": 37.502171,
       "longitude": -121.939313,
+      "description": "",
       "city": "Fremont",
       "county": "alameda"
     },
@@ -389,6 +434,7 @@
       "abbr": "WDUB",
       "latitude": 37.699756,
       "longitude": -121.928240,
+      "description": "",
       "city": "Dublin",
       "county": "alameda"
     },
@@ -397,6 +443,7 @@
       "abbr": "WOAK",
       "latitude": 37.804872,
       "longitude": -122.295140,
+      "description": "",
       "city": "Oakland",
       "county": "alameda"
     }
