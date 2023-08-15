@@ -72,7 +72,7 @@ searchBtn.onclick = async function () {
     const responseJSON = await response.json();
 
     responseJSON.data.map((station) => {
-      const stationMarker = L.marker({ lat: station.lat, lng: station.lng }, { 
+      const stationMarker = L.marker({ lat: station.latitude, lng: station.longitude }, { 
         icon: blueIcon
       });
     

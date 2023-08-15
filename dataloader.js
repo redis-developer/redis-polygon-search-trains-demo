@@ -1,15 +1,12 @@
 import 'dotenv/config';
 import { createClient } from 'redis';
-import { XMLParser } from 'fast-xml-parser';
 import { readFile } from 'fs/promises';
 
 const { REDIS_URL } = process.env;
 // TODO make the file configurable
 
-const dataBuf = await readFile('data/stations.kml');
-const parser = new XMLParser();
-const xmlObj = parser.parse(dataBuf);
-const stations = xmlObj.kml.Document.Placemark;
+const dataBuf = await readFile('data/stations.json');
+const stations = JSON.parse(dataBuf.toString());
 
 // Create a Redis client with details from the environment file.
 const redisClient = createClient({
@@ -20,19 +17,24 @@ const redisClient = createClient({
 await redisClient.connect();
 
 // Write each station's information to a JSON document in Redis.
-for (const station of stations) {
-  const stationName = station.name;
-  const stationKeyName = `station:${stationName.replaceAll(' ', '_').replaceAll('/', '_').toLowerCase()}`;
-  const [lng, lat] = station.Point.coordinates.split(',');
+for (const station of stations.stations) {
+  const stationKeyName = `station:${station.abbr.toLowerCase()}`;
 
   await redisClient.json.set(
     stationKeyName, 
     '$',
     {
+      abbr: station.abbr,
       name: station.name,
-      position: `POINT(${lng} ${lat})`,
-      lat: parseFloat(lat),
-      lng: parseFloat(lng)
+      description: station.description,
+      position: `POINT(${station.longitude} ${station.latitude})`,
+      latitude: station.latitude,
+      longitude: station.longitude,
+      lockers: station.lockers,
+      parking: station.parking,
+      bikeRacks: station.bikeRacks,
+      city: station.city,
+      county: station.county
     }
   );
 
@@ -55,7 +57,7 @@ try {
 // Waiting for ft.create to support this in Node Redis.
 console.log('Creating index.');
 await redisClient.sendCommand([
-  'FT.CREATE', 'idx:stations', 'ON', 'JSON', 'PREFIX', '1', 'station:', 'SCHEMA', '$.name', 'AS', 'name', 'TEXT', 'SORTABLE', '$.position', 'AS', 'position', 'GEOSHAPE', 'SPHERICAL'
+  'FT.CREATE', 'idx:stations', 'ON', 'JSON', 'PREFIX', '1', 'station:', 'SCHEMA', '$.name', 'AS', 'name', 'TAG', '$.description', 'AS', 'description', 'TEXT', '$.parking', 'AS', 'parking', 'TAG', '$.lockers', 'AS', 'lockers', 'TAG', '$.bikeRacks', 'AS', 'bikeracks', 'TAG', '$.city', 'AS', 'city', 'TAG', '$.county', 'AS', 'county', 'TAG', '$.position', 'AS', 'position', 'GEOSHAPE', 'SPHERICAL'
 ]);
 
 console.log('Done!');

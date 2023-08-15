@@ -44,6 +44,7 @@ app.post('/search', async (req, res) => {
   ];
 
   const searchResponse = (await redisClient.sendCommand(searchCommand));
+  console.log(searchResponse);
   const matchingStations = [];
 
   if (searchResponse[0] > 0) {
