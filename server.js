@@ -31,16 +31,28 @@ app.get('/', async (req, res) => {
 app.post('/search', async (req, res) => {
   // Example query:
   // FT.SEARCH idx:stations "@position:[within $poly]" RETURN 1 name PARAMS 2 poly "POLYGON((-122.387096 37.724491, -122.360487 38.802250, -122.521058 37.800800, -122.505826 37.705039, -122.387096 37.724491))" DIALECT 3
-
-  const polyCoordinates = req.body.geometry.coordinates[0];
+  const polyCoordinates = req.body.polygon.geometry.coordinates[0];
   let wktPolygon = 'POLYGON((';
 
   for (let n = 0; n < polyCoordinates.length; n++) {
     wktPolygon = `${wktPolygon}${polyCoordinates[n][0]} ${polyCoordinates[n][1]}${n == polyCoordinates.length -1 ? '))' : ','}`;
   }
 
+  let featuresClause = '';
+  if (req.body.parking === true) {``
+    featuresClause = '@parking:{true}';
+  }
+
+  if (req.body.lockers === true) {
+    featuresClause = `${featuresClause} @lockers:{true}`;
+  }
+
+  if (req.body.bikeRacks === true) {
+    featuresClause = `${featuresClause} @bikeRacks:{true}`;
+  }
+
   const searchCommand = [ 
-    'FT.SEARCH', 'idx:stations', '@position:[within $poly]', 'PARAMS', '2', 'poly', wktPolygon, 'DIALECT', '3', 'LIMIT', '0', '100'
+    'FT.SEARCH', 'idx:stations', `@position:[within $poly] ${featuresClause.trim()}`, 'PARAMS', '2', 'poly', wktPolygon, 'DIALECT', '3', 'LIMIT', '0', '100'
   ];
 
   const searchResponse = (await redisClient.sendCommand(searchCommand));

@@ -18,13 +18,26 @@ const blueIcon = new L.Icon({
 
 const searchBtn = document.getElementById('searchBtn');
 const resetBtn = document.getElementById('resetBtn');
+const racksBtn = document.getElementById('racksBtn');
+const lockersBtn = document.getElementById('lockersBtn');
+const parkingBtn = document.getElementById('parkingBtn');
 
-resetBtn.disabled = true;
-searchBtn.disabled = true;
+const allBtns = [ searchBtn, resetBtn, racksBtn, lockersBtn, parkingBtn ];
+const toggleBtns = [ racksBtn, lockersBtn, parkingBtn ];
+
+// Initialize the buttons.
+allBtns.map((b) => b.disabled = true);
+
+const TOGGLE_OFF_CLASS = 'is-light';
+toggleBtns.map((b) => b.classList.add(TOGGLE_OFF_CLASS));
 
 let currentMarkers = [];
 let searchResultMarkers = [];
 let currentPolygon = null;
+
+toggleBtns.map((b) => { b.onclick = function () {
+  this.classList.toggle(TOGGLE_OFF_CLASS);
+}});
 
 resetBtn.onclick = function () {
   if (currentPolygon) {
@@ -42,8 +55,8 @@ resetBtn.onclick = function () {
 
   currentMarkers = [];
   searchResultMarkers = [];
-  searchBtn.disabled = true;
-  resetBtn.disabled = true;
+  allBtns.map((b) => b.disabled = true);
+  toggleBtns.map((b) => b.classList.add(TOGGLE_OFF_CLASS));
 };
 
 searchBtn.onclick = async function () {
@@ -66,7 +79,12 @@ searchBtn.onclick = async function () {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(currentPolygon.toGeoJSON())
+      body: JSON.stringify({
+        polygon: currentPolygon.toGeoJSON(),
+        parking: ! parkingBtn.classList.contains(TOGGLE_OFF_CLASS),
+        lockers: ! lockersBtn.classList.contains(TOGGLE_OFF_CLASS),
+        bikeRacks: ! racksBtn.classList.contains(TOGGLE_OFF_CLASS)
+      })
     });
 
     const responseJSON = await response.json();
@@ -102,7 +120,7 @@ function updatePolygon() {
     }
     
     currentPolygon = L.polygon(polyCoords, {color: 'red'}).addTo(myMap);
-    searchBtn.disabled = false;
+    allBtns.map((b) => b.disabled = false);
   }
 }
 
