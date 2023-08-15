@@ -75,8 +75,11 @@ searchBtn.onclick = async function () {
       const stationMarker = L.marker({ lat: station.latitude, lng: station.longitude }, { 
         icon: blueIcon
       });
+
+      const falseIcon = '<i class="fas fa-check-circle fa-lg" style="color:#f14668"></i>';
+      const trueIcon = '<i class="fas fa-check-circle fa-lg" style="color:#48c78e"></i>';
     
-      stationMarker.bindPopup(`<b>${station.name}</b>`).openPopup();
+      stationMarker.bindPopup(`<p><b style="font-size:1.5em">${station.name}</b></p><p><ul><li>${station.parking === 'true' ? trueIcon : falseIcon} <b>Parking</b></li><li>${station.bikeRacks === 'true' ? trueIcon : falseIcon} <b>Bike Racks</b></li><li>${station.lockers === 'true' ? trueIcon : falseIcon} <b>Bike Lockers</b></li></ul></p><hr/><p>${station.description}</p>`).openPopup();
       stationMarker.addTo(myMap);
       searchResultMarkers.push(stationMarker);
     });
