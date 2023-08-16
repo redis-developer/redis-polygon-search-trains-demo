@@ -1,4 +1,6 @@
-# TODO
+# Redis Stack Polygon Search Trains Demo
+
+![Polygon search example in action](screenshots/polysearching.gif)
 
 * write readme
 
