@@ -114,6 +114,8 @@ You'll see that each station contains a JSON document with the following data it
 * `city`: The name of the city that the station is located in.
 * `county`: The name of the county that the station is located in.
 
+If you'd like to see the raw data 
+
 ## How does the Demo Work?
 
 ### Loading the Data and Creating an Index
@@ -145,6 +147,8 @@ If you'd like to learn more about the technologies and approaches used here, che
 * [RU204 Storing, Querying, and Indexing JSON at Speed](https://university.redis.com/courses/ru204/): a free online course at Redis University.
 * The [Node-Redis client](https://github.com/redis/node-redis).
 * [Search and Query in Redis Stack](https://redis.io/docs/interact/search-and-query/) (redis.io).
+* The [`FT.CREATE`](https://redis.io/commands/ft.create/) command (redis.io).
+* The [`FT.SEARCH`](https://redis.io/commands/ft.search/) command (redis.io).
 * [ExpressJS](https://expressjs.com/): A web application framework for Node.js.
 * The [Bulma CSS Framework](https://bulma.io/).
 * [Leaflet](https://leafletjs.com/): A JavaScript library for interactive maps.
