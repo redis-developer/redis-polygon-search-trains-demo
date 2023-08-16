@@ -68,12 +68,54 @@ docker-compose down
 
 ## Redis Data Model
 
+Each station's data is stored as a JSON document using Redis Stack's JSON data type.
+
+Each station has a unique four character ID that BART uses.  We use these as part of the Redis keys, so the JSON document for "Colma" (ID `COLM`) is:
+
+```
+station:colm
+```
+
+Using a common prefix `station:` allows us to identify what sort of data might be stored at the key more easily, and also allows us to configure the search capability of Redis Stack to only index that part of the keyspace.
+
+Take a look at one of the keys using either RedisInsight or the Redis CLI.
+
+Start the Redis CLI which will automatically connect to Redis at `localhost:6379` (our Docker container):
+
+```
+docker exec -it redis-polygon-search-demo r
+edis-cli
+```
+
+Now use the [`JSON.GET`](https://redis.io/commands/json.get/) command to retrieve a station's document:
+
+```
+127.0.0.1:6379> json.get station:colm
+"{\"abbr\":\"COLM\",\"name\":\"Colma\",\"description\":\"The Town of Colma is a diverse community on the San Francisco peninsula that maintains that \\\"small town\\\" feel despite being so close to major cities. The Colma BART Station is close to residential neighborhoods and shopping areas. Colma is perhaps best known for its 17 cemeteries, which comprise approximately 73% of the town's land area. The town incorporated in 1924 primarily to protect this land use. Colma's cemeteries represent numerous religious beliefs and nationalities, and include structures and districts which are historically significant on local, state and national levels.\",\"position\":\"POINT(-122.466233 37.684638)\",\"latitude\":37.684638,\"longitude\":-122.466233,\"lockers\":\"true\",\"parking\":\"true\",\"bikeRacks\":\"true\",\"city\":\"Colma\",\"county\":\"sanmateo\"}"
+```
+
+If you're using RedisInsight, start it up and add a new connection to Redis at `localhost` port `6379` with no user or password specified.  You can then browse the key space and see the data contained in each key.
+
+You'll see that each station contains a JSON document with the following data items in it:
+
+* `abbr`: The four character unique ID for this station.
+* `name`: The name of the station.
+* `description`: Text describing the station and local area.
+* `position`: TODO
+* `longitude`: The longitude of the station.
+* `latitude`: The latitude of the station.
+* `lockers`: A true/false text flag indicating whether the station has bike lockers.
+* `parking`: A true/false text flag indicating whether the station has a parking lot.
+* `bikeRacks`: A true/false text flag indicating whether the station has bike racks.
+* `city`: The name of the city that the station is located in.
+* `county`: The name of the county that the station is located in.
+
+## How does the Demo Work?
+
 TODO
 
-## How Does it Work?
+## Questions / Ideas / Feedback?
 
-TODO
+If you have any questions about this, or fun ideas for how to use polygon search in your application we'd love to hear from you.  Find the Redis Developer Relations team and thousands of other Redis developers like you on the [official Redis Discord](https://discord.gg/redis).
 
-## Questions / Ideas?
-
-If you have any questions about this, or fun ideas for how to use polygon search in your application we'd love to hear from you.  Find the Redis Developer Relations team and thousands of other Redis developers like you on the official Redis Discord.
+If you find a bug please [raise an issue on GitHub](https://github.com/redis-developer/redis-polygon-search-trains-demo/issues) and we'll work to fix it.
