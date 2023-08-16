@@ -114,7 +114,7 @@ You'll see that each station contains a JSON document with the following data it
 * `city`: The name of the city that the station is located in.
 * `county`: The name of the county that the station is located in.
 
-If you'd like to see the raw data 
+If you'd like to see the raw data for all 50 stations, take a look in the [`data/stations.json`](data/stations.json) file.
 
 ## How does the Demo Work?
 
