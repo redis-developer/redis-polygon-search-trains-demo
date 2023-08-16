@@ -4,7 +4,11 @@
 
 ## Introduction
 
-TODO
+This repository is a small self-contained demonstration of the Polygon Search functionality that was added in the 7.2 release of Redis Stack.
+
+For information about this release and the other new features in it, check out the [blog post](https://redis.com/blog/introducing-redis-7-2/).
+
+Using data from the Bay Area Rapid Transit ([BART](https://www.bart.gov/system-map)) system, we'll look at how to use the Search capability of Redis Stack to find stations that fall within an area described by a polygon, and which optionally have certain attributes.
 
 ## Prerequisites
 
@@ -119,3 +123,14 @@ TODO
 If you have any questions about this, or fun ideas for how to use polygon search in your application we'd love to hear from you.  Find the Redis Developer Relations team and thousands of other Redis developers like you on the [official Redis Discord](https://discord.gg/redis).
 
 If you find a bug please [raise an issue on GitHub](https://github.com/redis-developer/redis-polygon-search-trains-demo/issues) and we'll work to fix it.
+
+## Additional Resources
+
+If you'd like to learn more about the technologies and approaches used here, check out these links...
+
+* [RU204 Storing, Querying, and Indexing JSON at Speed](https://university.redis.com/courses/ru204/): a free online course at Redis University.
+* The [Node-Redis client](https://github.com/redis/node-redis).
+* [Search and Query in Redis Stack](https://redis.io/docs/interact/search-and-query/) (redis.io).
+* [ExpressJS](https://expressjs.com/): A web application framework for Node.js.
+* The [Bulma CSS Framework](https://bulma.io/).
+* [Leaflet](https://leafletjs.com/): A JavaScript library for interactive maps.
