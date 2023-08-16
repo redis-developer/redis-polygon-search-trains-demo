@@ -1,7 +1,6 @@
 # TODO
 
 * write readme
-* engines in package
 
 Until then try:
 

@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Redis Stack Polygon Search Demo",
   "main": "server.js",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "load": "node dataloader.js",
     "start": "node server.js",
