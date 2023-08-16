@@ -3,9 +3,14 @@ import { createClient } from 'redis';
 import { readFile } from 'fs/promises';
 
 const { REDIS_URL } = process.env;
-// TODO make the file configurable
 
-const dataBuf = await readFile('data/stations.json');
+// Make sure we were called with a file to load...
+if (process.argv.length !== 3) {
+  console.log('Usage: npm run load <filename>');
+  process.exit(1);
+}
+
+const dataBuf = await readFile(process.argv[2]);
 const stations = JSON.parse(dataBuf.toString());
 
 // Create a Redis client with details from the environment file.
