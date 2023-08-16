@@ -116,6 +116,20 @@ You'll see that each station contains a JSON document with the following data it
 
 ## How does the Demo Work?
 
+### Loading the Data and Creating an Index
+
+TODO
+
+### Serving a Map and Defining the Polygon
+
+TODO
+
+### Searcing for Stations that meet the Criteria
+
+TODO
+
+### Displaying Search Results on the Map
+
 TODO
 
 ## Questions / Ideas / Feedback?
