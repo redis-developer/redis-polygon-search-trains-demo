@@ -105,7 +105,7 @@ You'll see that each station contains a JSON document with the following data it
 * `abbr`: The four character unique ID for this station.
 * `name`: The name of the station.
 * `description`: Text describing the station and local area.
-* `position`: TODO
+* `position`: A [Well-known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) Point representation of the station's lat/long location.  Example: `POINT(-122.414123 37.779732)` where `37.779732` is the latitude and `-122.414123` is the longitude.  This is required as searching by polygons uses the Well-known Text geometry format.
 * `longitude`: The longitude of the station.
 * `latitude`: The latitude of the station.
 * `lockers`: A true/false text flag indicating whether the station has bike lockers.
