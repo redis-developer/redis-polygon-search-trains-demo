@@ -119,7 +119,7 @@ function updatePolygon() {
       myMap.removeLayer(currentPolygon);
     }
     
-    currentPolygon = L.polygon(polyCoords, {color: 'red'}).addTo(myMap);
+    currentPolygon = L.polygon(polyCoords, {color: 'red', weight: 2, fill: true, stroke: false}).addTo(myMap);
     allBtns.map((b) => b.disabled = false);
   }
 }
