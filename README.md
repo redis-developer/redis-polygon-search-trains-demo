@@ -154,7 +154,7 @@ If you find a bug please [raise an issue on GitHub](https://github.com/redis-dev
 
 If you'd like to learn more about the technologies and approaches used here, check out these links...
 
-* TODO link to weather demo
+* [Redis Polygon Search Weather Demo](https://github.com/redis-developer/redis-polygon-search-weather-demo): another demo project that shows how to search for areas represented by polygons contained inside a search polygon.  It also contains a demonstration of how to search for which polygon contains a given lat/long point.  This is written in Python.
 * [RU204 Storing, Querying, and Indexing JSON at Speed](https://university.redis.com/courses/ru204/): a free online course at Redis University.
 * The [Node-Redis client](https://github.com/redis/node-redis).
 * [Search and Query in Redis Stack](https://redis.io/docs/interact/search-and-query/) (redis.io).
