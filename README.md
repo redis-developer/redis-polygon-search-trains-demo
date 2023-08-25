@@ -31,7 +31,15 @@ npm install
 docker-compose up -d
 ```
 
-TODO .env file creation...
+We're using a `.env` file to store secrets such as the host and port that Redis runs on.  An example environment file `example.env` is included in this repository.
+
+If you're using Redis Stack with the Docker Compose provided, you won't need to change any values, and can just copy `env.example` to `.env`:
+
+```
+cp env.example .env
+```
+
+If you need to change the Redis connection details (for example because your Redis Stack instance runs remotely or uses a password, or you want to change the port that the backend server runs on), edit `.env` accordingly before proceeding further.
 
 Now load the data:
 
