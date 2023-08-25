@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   redis:
-    container_name: redis-polygon-search-demo
+    container_name: redis-polygon-search-trains-demo
     image: redis/redis-stack-server:7.2.0-v0
     ports:
       - "6379:6379"
