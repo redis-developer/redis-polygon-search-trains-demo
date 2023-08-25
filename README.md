@@ -22,7 +22,7 @@ You'll need to have the following installed:
 
 ## Running the Demo
 
-To run the demo, you'll need to clone the repository from GitHub, install the dependencies and start a Redis Stack instance.  We've provided a Docker Compose file for this.  Enter the following commands:
+To run the demo, you'll need to clone the repository from GitHub, install the dependencies and start a Redis Stack instance.  We've provided a Docker Compose file for Redis Stack.  Enter the following commands:
 
 ```
 git clone https://github.com/redis-developer/redis-polygon-search-trains-demo.git
@@ -30,6 +30,8 @@ cd redis-polygon-search-trains-demo
 npm install
 docker-compose up -d
 ```
+
+TODO .env file creation...
 
 Now load the data:
 
@@ -144,6 +146,7 @@ If you find a bug please [raise an issue on GitHub](https://github.com/redis-dev
 
 If you'd like to learn more about the technologies and approaches used here, check out these links...
 
+* TODO link to weather demo
 * [RU204 Storing, Querying, and Indexing JSON at Speed](https://university.redis.com/courses/ru204/): a free online course at Redis University.
 * The [Node-Redis client](https://github.com/redis/node-redis).
 * [Search and Query in Redis Stack](https://redis.io/docs/interact/search-and-query/) (redis.io).
