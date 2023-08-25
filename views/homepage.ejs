@@ -25,16 +25,24 @@
     </div>
   </section>
   <main class="container mt-4">
-    <div class="container has-text-centered">
-      <div class="box">
-        <button id="parkingBtn" class="button is-warning is-medium mr-4"><span class="icon is-small"><i class="fas fa-parking"></i></span><span>Parking</span></button>
-        <button id="racksBtn" class="button is-warning is-medium mr-4"><span class="icon is-small"><i class="fas fa-bicycle"></i></span><span>Bike Racks</span></button>
-        <button id="lockersBtn" class="button is-warning is-medium mr-4"><span class="icon is-small"><i class="fas fa-lock"></i></span><span>Bike Lockers</span></button>
-        <button id="searchBtn" class="button is-success is-medium mr-4"><span>Search</span><span class="icon is-small"><i class="fas fa-search"></i></span></button>
-        <button id="resetBtn" class="button is-danger is-medium"><span>Reset</span><span class="icon is-small"><i class="fas fa-times"></i></span></button>
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-8">
+        <div id="mapid"></div>
+      </div>
+      <div class="tile is-parent">
+        <div class="tile is-vertical">
+            <div class="box has-text-centered">
+              <button id="parkingBtn" class="button is-warning is-medium mb-4"><span class="icon is-small"><i class="fas fa-parking"></i></span><span>Parking</span></button>
+              <button id="racksBtn" class="button is-warning is-medium mb-4"><span class="icon is-small"><i class="fas fa-bicycle"></i></span><span>Bike Racks</span></button>
+              <button id="lockersBtn" class="button is-warning is-medium mb-4"><span class="icon is-small"><i class="fas fa-lock"></i></span><span>Bike Lockers</span></button>
+            </div>
+            <div class="box has-text-centered">
+              <button id="searchBtn" class="button is-success is-medium mb-4"><span>Search</span><span class="icon is-small"><i class="fas fa-search"></i></span></button>
+              <button id="resetBtn" class="button is-danger is-medium"><span>Reset</span><span class="icon is-small"><i class="fas fa-times"></i></span></button>
+            </div>
+        </div>
       </div>
     </div>
-    <div id="mapid"></div>
   </main>
   <footer class="footer">
     <div class="content has-text-centered">

@@ -1,4 +1,4 @@
-const myMap = L.map('mapid').setView([37.6570598, -122.2636107], 10);
+const myMap = L.map('mapid').setView([37.6180849, -122.151884], 10);
 const redIcon = new L.Icon({
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
