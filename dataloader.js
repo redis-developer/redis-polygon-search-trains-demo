@@ -42,12 +42,12 @@ for (const station of stations.stations) {
 try {
   console.log('Checking for previous index and dropping if found.');
   await redisClient.ft.dropIndex('idx:stations');
+  console.log('Dropped old search index.');
 } catch (e) {
   if (e.message.indexOf('Unknown Index') == -1) {
     console.log('Error:');
     console.log(e);
-  } else {
-    console.log('Dropped old search index.');
+    process.exit(1);
   }
 }
 
