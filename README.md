@@ -97,8 +97,8 @@ Take a look at one of the keys using either RedisInsight or the Redis CLI.
 Start the Redis CLI which will automatically connect to Redis at `localhost:6379` (our Docker container):
 
 ```
-docker exec -it redis-polygon-search-demo r
-edis-cli
+docker exec -it redis-polygon-search-t
+rains-demo redis-cli
 ```
 
 Now use the [`JSON.GET`](https://redis.io/commands/json.get/) command to retrieve a station's document:
