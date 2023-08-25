@@ -33,14 +33,11 @@ app.post('/search', async (req, res) => {
   // FT.SEARCH idx:stations "@position:[within $poly]" RETURN 1 name PARAMS 2 poly "POLYGON((-122.387096 37.724491, -122.360487 38.802250, -122.521058 37.800800, -122.505826 37.705039, -122.387096 37.724491))" DIALECT 3
 
   const wktString = wellknown.stringify(req.body.polygon);
-
   const featuresClause = `${req.body.parking ? '@parking:{true}' : ''} ${req.body.lockers ? '@lockers:{true}' : ''} ${req.body.bikeRacks ? '@bikeRacks:{true}' : ''}`.trim();
 
   const searchCommand = [ 
     'FT.SEARCH', 'idx:stations', `@position:[within $poly] ${featuresClause}`, 'PARAMS', '2', 'poly', wktString, 'DIALECT', '3', 'LIMIT', '0', '100'
   ];
-
-  console.log(searchCommand);
 
   const searchResponse = (await redisClient.sendCommand(searchCommand));
   const matchingStations = [];
