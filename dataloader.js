@@ -29,17 +29,9 @@ for (const station of stations.stations) {
     stationKeyName, 
     '$',
     {
-      abbr: station.abbr,
-      name: station.name,
-      description: station.description,
-      position: `POINT(${station.longitude} ${station.latitude})`,
-      latitude: station.latitude,
-      longitude: station.longitude,
-      lockers: station.lockers,
-      parking: station.parking,
-      bikeRacks: station.bikeRacks,
-      city: station.city,
-      county: station.county
+      ...station,
+      // Add a WKT representation of the station's position.
+      position: `POINT(${station.longitude} ${station.latitude})`
     }
   );
 
