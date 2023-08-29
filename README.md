@@ -41,7 +41,7 @@ cp env.example .env
 
 If you need to change the Redis connection details (for example because your Redis Stack instance runs remotely or uses a password, or you want to change the port that the backend server runs on), edit `.env` accordingly before proceeding further.
 
-Now load the data:
+Now load the data into Redis Stack:
 
 ```
 npm run load data/stations.json
@@ -97,8 +97,7 @@ Take a look at one of the keys using either RedisInsight or the Redis CLI.
 Start the Redis CLI which will automatically connect to Redis at `localhost:6379` (our Docker container):
 
 ```
-docker exec -it redis-polygon-search-t
-rains-demo redis-cli
+docker exec -it redis-polygon-search-trains-demo redis-cli
 ```
 
 Now use the [`JSON.GET`](https://redis.io/commands/json.get/) command to retrieve a station's document:
