@@ -39,7 +39,7 @@ app.post('/search', async (req, res) => {
     'FT.SEARCH', 'idx:stations', `@position:[within $poly] ${featuresClause}`, 'PARAMS', '2', 'poly', wktString, 'DIALECT', '3', 'LIMIT', '0', '100'
   ];
 
-  const searchResponse = (await redisClient.sendCommand(searchCommand));
+  const searchResponse = await redisClient.sendCommand(searchCommand);
   const matchingStations = [];
 
   if (searchResponse[0] > 0) {
