@@ -178,7 +178,35 @@ TODO
 
 ### Searching for Stations that meet the Criteria
 
-TODO
+TODO posting the data from the front end into the backend.
+
+The backend receives the data in the request body as a GeoJSON object.  As we need a Well-known Text format representation of the polygon to perform a search, we use the [`wellknown` package]() to transform it for us:
+
+```javascript
+const wktString = wellknown.stringify(req.body.polygon);
+```
+
+Depending on whether any of the additional properties were checked in the front end, we might also need a search clauses for parking, lockers and/or bike racks. 
+
+These fields are all indexed as `TAG`, so the search syntax for them is `@fieldName:{value}`.  Placing multiple such clauses in the search query separated by spaces acts as an `AND` operator.  Building this part of the search query is pretty straightforward:
+
+```javascript
+const featuresClause = `${req.body.parking ? '@parking:{true}' : ''} ${req.body.lockers ? '@lockers:{true}' : ''} ${req.body.bikeRacks ? '@bikeRacks:{true}' : ''}`.trim();
+```
+
+Now we have the WKT representation of the polygon and any other clauses, all that remains is to build up an array of strings representing the full search command:
+
+```javascript
+const searchCommand = [ 
+  'FT.SEARCH', 'idx:stations', `@position:[within $poly] ${featuresClause}`, 'PARAMS', '2', 'poly', wktString, 'DIALECT', '3', 'LIMIT', '0', '100'
+];
+```
+
+Here we're saying "find me stations within the polygon I'm providing which also have all of the features in the `featuresClause` string and return up to 100 matches".  When working with this lower level interface, we also have to specify `DIALECT 3` (or greater) to use the correct search syntax dialect for polygon search.
+
+In a future update to node-redis, the polygon search syntax will be supported directly by the more idiomatic `ft.search` command wrapper, and I'll revisit this code and update / simplify it accordingly.
+
+Read on to see how the backend transforms the response from Redis Stack, returns it to the front end and how the stations get added as markers on the map...
 
 ### Displaying Search Results on the Map
 
