@@ -178,7 +178,31 @@ TODO
 
 ### Searching for Stations that meet the Criteria
 
-TODO posting the data from the front end into the backend.
+When the user clicks the "Search" button in the frontend, we need to get the details of the polygon that they've drawn on the map and send that to the backend along with the status of the toggle buttons for parking, lockers and bike racks.
+
+Conveniently, Leaflet's Polygon object offers a `toGeoJSON` function that we can use to get a JSON representation of the polygon's co-ordinates.  Whilst this isn't the Well-known Text format that we'll need to perform the actual search in the backend, it's a format that can be easily translated on the server.
+
+We can figure out whether or not the toggle buttons are on or off by checking for the presence of the class that dims their appearance when turned off.
+
+Here's how we make a `POST` request to the backend to ask it to perform the search (soucce contained in `static/js/app.js`):
+
+```javascript
+const response = await fetch('/search', {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    polygon: currentPolygon.toGeoJSON(),
+    parking: ! parkingBtn.classList.contains(TOGGLE_OFF_CLASS),
+    lockers: ! lockersBtn.classList.contains(TOGGLE_OFF_CLASS),
+    bikeRacks: ! racksBtn.classList.contains(TOGGLE_OFF_CLASS)
+  })
+});
+
+const responseJSON = await response.json();
+```
 
 The backend receives the data in the request body as a GeoJSON object.  As we need a Well-known Text format representation of the polygon to perform a search, we use the [`wellknown` package]() to transform it for us:
 
