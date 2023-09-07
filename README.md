@@ -176,7 +176,7 @@ Note that we're using the generic `sendCommand` function here as node-redis does
 
 TODO
 
-### Searcing for Stations that meet the Criteria
+### Searching for Stations that meet the Criteria
 
 TODO
 
