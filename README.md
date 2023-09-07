@@ -281,7 +281,32 @@ The code transforms the search response from Redis Stack into a format that's ea
 
 We could save a little bandwith by removing the `position` field, as the front end doesn't use that.  It uses thr `latitude` and `longitude` fields to plot matches on the map.
 
-TODO rendering it in the map...
+Recall that in the front end, we used the `fetch` API to make a `POST` request to `/search`, passing it our search polygon and toggle switch statuses as inputs.  Picking up where we left off, we get the JSON response:
+
+```javascript
+const responseJSON = await response.json();
+```
+
+For each station object inside the `data` array returned (if no stations match we just get an empty array), we need to add a marketr to the map, along with a popup containing information received about the station.
+
+This is fairly simple with Leaflet's API.  Note that we also keep an array of all search result markers in `searchResultMarkers`... this is so that we can remove them the next time the user performs a search.  As a bit of a visual flourish, we're using [Fontawesome icons](https://fontawesome.com/) for red and green check marks to show whether parking, lockers, bike racks are present at the station.
+
+```javascript
+const responseJSON = await response.json();
+
+responseJSON.data.map((station) => {
+  const stationMarker = L.marker({ lat: station.latitude, lng: station.longitude }, { 
+    icon: blueIcon
+  });
+
+  const falseIcon = '<i class="fas fa-check-circle fa-lg" style="color:#f14668"></i>';
+  const trueIcon = '<i class="fas fa-check-circle fa-lg" style="color:#48c78e"></i>';
+
+  stationMarker.bindPopup(`<p><b style="font-size:1.5em">${station.name}</b></p><p><ul><li>${station.parking === 'true' ? trueIcon : falseIcon} <b>Parking</b></li><li>${station.bikeRacks === 'true' ? trueIcon : falseIcon} <b>Bike Racks</b></li><li>${station.lockers === 'true' ? trueIcon : falseIcon} <b>Bike Lockers</b></li></ul></p><hr/><p>${station.description}</p>`).openPopup();
+  stationMarker.addTo(myMap);
+  searchResultMarkers.push(stationMarker);
+});
+```
 
 ## Questions / Ideas / Feedback?
 
