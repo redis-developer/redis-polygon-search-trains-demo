@@ -129,7 +129,46 @@ If you'd like to see the raw data for all 50 stations, take a look in the [`data
 
 ### Loading the Data and Creating an Index
 
-TODO
+Data loading is handled by the `dataloader.js` script.  This connects to Redis Stack, and reads the data from the `data/stations.json` file.
+
+Each station's object gets written to Redis Stack as its own JSON document with its own Redis key (which begins with the `station:` prefix).  
+
+When adding the documents to Redis, the data loader adds one extra field: `position`.  This is in [Well-known text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) format:
+
+```javascript
+const stationKeyName = `station:${station.abbr.toLowerCase()}`;
+
+await redisClient.json.set(
+  stationKeyName, 
+  '$',
+  {
+    ...station,
+    // Add a WKT representation of the station's position.
+    position: `POINT(${station.longitude} ${station.latitude})`
+  }
+);
+```
+
+The data loader script also creates the search index.  It first deletes any previous index definition, then runs the [`FT.CREATE`](https://redis.io/commands/ft.create/) command:
+
+```javascript
+await redisClient.sendCommand([
+  'FT.CREATE', 'idx:stations', 'ON', 'JSON', 'PREFIX', '1', 'station:', 'SCHEMA', '$.name', 'AS', 'name', 'TAG', '$.description', 'AS', 'description', 'TEXT', '$.parking', 'AS', 'parking', 'TAG', '$.lockers', 'AS', 'lockers', 'TAG', '$.bikeRacks', 'AS', 'bikeRacks', 'TAG', '$.city', 'AS', 'city', 'TAG', '$.county', 'AS', 'county', 'TAG', '$.position', 'AS', 'position', 'GEOSHAPE', 'SPHERICAL'
+]);
+```
+
+The schema tells Redis Stack's Search capability to index the data as follows:
+
+* `name`: `TAG` (exact matches)
+* `description`: `TEXT` (full text search)
+* `parking`: `TAG` (exact matches)
+* `lockers`: `TAG` (exact matches)
+* `bikeRacks`: `TAG` (exact matches)
+* `city`: `TAG` (exact matches)
+* `county`: `TAG` (exact matches)
+* `position`: `GEOSHAPE SPHERICAL` (this is a new indexing type in the 7.2 release.  `GEOSHAPE` tells Search to expect the value of this field to be in Well-known text format and `SPHERICAL` tells it that we are using the geographical longitude, latitude co-ordinate system)
+
+Once the index is created, Redis Stack automatically indexes the existing documents and tracks changes to them for us.  Therefore we don't need to write code to maintain the index.
 
 ### Serving a Map and Defining the Polygon
 
