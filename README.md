@@ -170,6 +170,8 @@ The schema tells Redis Stack's Search capability to index the data as follows:
 
 Once the index is created, Redis Stack automatically indexes the existing documents and tracks changes to them for us.  Therefore we don't need to write code to maintain the index.
 
+Note that we're using the generic `sendCommand` function here as node-redis doesn't yet support the `GEOSHAPE` syntax in its more idiomatic `ft.create` implementation.  I'll revisit this code when this changes.
+
 ### Serving a Map and Defining the Polygon
 
 TODO
@@ -180,7 +182,54 @@ TODO
 
 ### Displaying Search Results on the Map
 
-TODO
+As we're using the generic `sendCommand` function in node-redis at the moment, the search results are delivered to us in the same format that Redis Stack uses (RESP).  In future versions of node-redis with support for `GEOSHAPE` searches, this can be replaced with the more idiomatic `ft.search` command that will transform the response into a more useful format for us automatically.  I'll revisit this project when that is released.
+
+Here's what the response looks like for now:
+
+```javascript
+[
+  6,
+  'station:sbrn',
+  [
+    '$',
+    `[{"name":"San Bruno","abbr":"SBRN","latitude":37.637761,"longitude":-122.416287,"description":"San Bruno Station is next to...","parking":"true","lockers":"true","bikeRacks":"true","city":"San Bruno","county":"sanmateo","position":"POINT(-122.416287 37.637761)"}]`
+  ],
+  'station:balb',
+  [
+    '$',
+    `[{"name":"Balboa Park","abbr":"BALB","latitude":37.721585,"longitude":-122.447506,"description":"Balboa Park is the name of both...","parking":"false","lockers":"false","bikeRacks":"true","city":"San Francisco","county":"sanfrancisco","position":"POINT(-122.447506 37.721585)"}]`
+  ],
+  ...  
+]
+```
+
+The code transforms the search response from Redis Stack into a format that's easier for the front end to work with - an array of objects.  The front end receives the following JSON:
+
+```json
+{
+  "data": [
+    {
+      "key": "station:sbrn",
+      "name": "San Bruno",
+      "abbr": "SBRN",
+      "latitude": 37.637761,
+      "longitude": -122.416287,
+      "description": "San Bruno Station is next to...",
+      "parking": "true",
+      "lockers": "true",
+      "bikeRacks": "true",
+      "city": "San Bruno",
+      "county": "sanmateo",
+      "position": "POINT(-122.416287 37.637761)"
+    },
+    ...
+  ]
+}
+```
+
+We could save a little bandwith by removing the `position` field, as the front end doesn't use that.  It uses thr `latitude` and `longitude` fields to plot matches on the map.
+
+TODO rendering it in the map...
 
 ## Questions / Ideas / Feedback?
 
