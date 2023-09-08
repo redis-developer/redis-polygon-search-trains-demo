@@ -188,7 +188,7 @@ L.tileLayer(
 ).addTo(myMap);
 ```
 
-We also need two different coloured markers for the map - I'm using red ones for the points of the user's search polygon that they'll draw and blue ones for the stations that are shown as search results.  We're using off the shelf market images, configured like this:
+We also need two different coloured markers for the map - I'm using red ones for the points of the user's search polygon that they'll draw and blue ones for the stations that are shown as search results.  We're using off the shelf marker images, configured like this:
 
 ```javascript
 const redIcon = new L.Icon({
@@ -274,7 +274,7 @@ Conveniently, Leaflet's Polygon object offers a `toGeoJSON` function that we can
 
 We can figure out whether or not the toggle buttons are on or off by checking for the presence of the class that dims their appearance when turned off.
 
-Here's how we make a `POST` request to the backend to ask it to perform the search (soucce contained in `static/js/app.js`):
+Here's how we make a `POST` request to the backend to ask it to perform the search (source contained in `static/js/app.js`):
 
 ```javascript
 const response = await fetch('/search', {
@@ -300,7 +300,7 @@ The backend receives the data in the request body as a GeoJSON object.  As we ne
 const wktString = wellknown.stringify(req.body.polygon);
 ```
 
-Depending on whether any of the additional properties were checked in the front end, we might also need a search clauses for parking, lockers and/or bike racks. 
+Depending on whether any of the additional properties were checked in the front end, we might also need additional search clauses for parking, lockers and/or bike racks. 
 
 These fields are all indexed as `TAG`, so the search syntax for them is `@fieldName:{value}`.  Placing multiple such clauses in the search query separated by spaces acts as an `AND` operator.  Building this part of the search query is pretty straightforward:
 
@@ -369,15 +369,15 @@ The code transforms the search response from Redis Stack into a format that's ea
 }
 ```
 
-We could save a little bandwith by removing the `position` field, as the front end doesn't use that.  It uses thr `latitude` and `longitude` fields to plot matches on the map.
+We could save a little bandwith by removing the `position` and `county` fields, as the front end doesn't use them.  It uses the `latitude` and `longitude` fields to plot matches on the map, and the others to build the informational popup about the station.
 
-Recall that in the front end, we used the `fetch` API to make a `POST` request to `/search`, passing it our search polygon and toggle switch statuses as inputs.  Picking up where we left off, we get the JSON response:
+Recall that in the front end we used the `fetch` API to make a `POST` request to `/search`, passing it our search polygon and toggle switch statuses as inputs.  Picking up where we left off, we get the JSON response:
 
 ```javascript
 const responseJSON = await response.json();
 ```
 
-For each station object inside the `data` array returned (if no stations match we just get an empty array), we need to add a marketr to the map, along with a popup containing information received about the station.
+For each station object inside the `data` array returned (if no stations match we just get an empty array), we need to add a marker to the map, along with a popup containing information received about the station.
 
 This is fairly simple with Leaflet's API.  Note that we also keep an array of all search result markers in `searchResultMarkers`... this is so that we can remove them the next time the user performs a search.  As a bit of a visual flourish, we're using [Fontawesome icons](https://fontawesome.com/) for red and green check marks to show whether parking, lockers, bike racks are present at the station.
 
