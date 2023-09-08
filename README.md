@@ -212,7 +212,34 @@ myMap.on('click', (e) => {
 });
 ```
 
-TODO adding the marker etc.
+Whenever there's a click on the map, we add a marker like so:
+
+```javascript
+const newMarker = L.marker(e.latlng, { 
+  icon: redIcon, 
+  draggable: true 
+});
+
+newMarker.addTo(myMap);
+```
+
+The marker is configured to be draggable... whenever it moves, we'll need to know about that and that's a simple matter of adding an event handler:
+
+```javascript
+// Run the updatePolygon function whenever this marker moves.
+newMarker.on('move', () => updatePolygon());
+```
+
+Whenever a new marker is first added, we also run the `updatePolygon` function to determine if we should draw a polygon or update an existing one.  The markers are also tracked by adding them to a `currentMarkers` array - used to clear them from the map when the user resets the state.
+
+The `updateMarker` function handles:
+
+* When to draw the polygon.
+* Updating it as markers are moved around.
+
+Let's see how it does this...
+
+TODO
 
 The map also contains some buttons to initiate the search, reset the state and toggle additional search criteria - do we want results that have parking, bike lockers, bike racks.  We won't cover how the button presses are handled here, see `static/js/app.js` if you want to look at this.
 
