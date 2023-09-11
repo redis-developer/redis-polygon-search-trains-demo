@@ -170,7 +170,9 @@ The schema tells Redis Stack's Search capability to index the data as follows:
 
 Once the index is created, Redis Stack automatically indexes the existing documents and tracks changes to them for us.  Therefore we don't need to write code to maintain the index.
 
-Note that we're using the generic `sendCommand` function here as node-redis doesn't yet support the `GEOSHAPE` syntax in its more idiomatic `ft.create` implementation.  I'll revisit this code when this changes.
+Note that the order of creating the index and loading the documents doesn't matter.  In this example, we're creating the index after loading the data but it could be done the other way around.  The Search capability of Redis Stack will index documents for us from the moment the index is created, then track changes in the indexed area of the keyspace.  It automatically adds, updates and deletes index entries as changes occur to tracked documents.
+
+Note also that we're using the generic `sendCommand` function here as node-redis doesn't yet support the `GEOSHAPE` syntax in its more idiomatic `ft.create` implementation.  I'll revisit this code when this changes.
 
 ### Serving a Map and Defining the Polygon
 
