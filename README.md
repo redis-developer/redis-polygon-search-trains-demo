@@ -322,7 +322,7 @@ Here we're saying "find me stations within the polygon I'm providing which also 
 
 In a future update to node-redis, the polygon search syntax will be supported directly by the more idiomatic `ft.search` command wrapper, and I'll revisit this code and update / simplify it accordingly.
 
-Read on to see how the backend transforms the response from Redis Stack, returns it to the front end and how the stations get added as markers on the map...
+Read on to see how the backend transforms the response from Redis Stack, returns it to the front end, and how the stations get added as markers on the map...
 
 ### Displaying Search Results on the Map
 
