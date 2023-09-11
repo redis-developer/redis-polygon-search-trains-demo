@@ -133,7 +133,7 @@ Data loading is handled by the `dataloader.js` script.  This connects to Redis S
 
 Each station's object gets written to Redis Stack as its own JSON document with its own Redis key (which begins with the `station:` prefix).  
 
-When adding the documents to Redis, the data loader adds one extra field: `position`.  This is in [Well-known text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) format:
+When adding the documents to Redis Stack, the data loader adds one extra field: `position`.  This is in [Well-known text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) format:
 
 ```javascript
 const stationKeyName = `station:${station.abbr.toLowerCase()}`;
