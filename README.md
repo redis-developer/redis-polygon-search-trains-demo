@@ -174,7 +174,7 @@ Note that the order of creating the index and loading the documents doesn't matt
 
 Note also that we're using the generic `sendCommand` function here as node-redis doesn't yet support the `GEOSHAPE` syntax in its more idiomatic `ft.create` implementation.  I'll revisit this code when this changes.
 
-### Serving a Map and Defining the Polygon
+### Serving a Map and Defining the Search Polygon
 
 The front end uses [Leaflet maps](https://leafletjs.com/) with the [OpenStreetMap](https://www.openstreetmap.org/) tile layer.  It's beyond the scope of this document to explain how this works - if you're curious check out Leaflet's [quick start](https://leafletjs.com/examples/quick-start/).  At a high level, we load the JavaScript and configure a map to appear in a given `div` on the page by providing the ID of the `div`, a lat/long centre point for the map and an initial zoom level:
 
