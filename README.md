@@ -2,6 +2,8 @@
 
 ![Polygon search example in action](screenshots/polysearching.gif)
 
+Watch the recording of our Polygon Search live stream video on YouTube [here](https://www.youtube.com/watch?v=CegTSglMUks).
+
 ## Introduction
 
 This repository is a small self-contained demonstration of the Polygon Search functionality that was added in the 7.2 release of Redis Stack.
